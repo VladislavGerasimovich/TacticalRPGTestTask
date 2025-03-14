@@ -29,9 +29,10 @@ namespace Grid
             _itemIcon.sprite = icon;
         }
 
-        private void OnMouseExit()
+        public void OffHighlight()
         {
             _highlight.enabled = false;
+            _itemIcon.sprite = null;
         }
     }
 }

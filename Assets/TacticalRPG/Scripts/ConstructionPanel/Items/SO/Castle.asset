@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 238c2fbc7116a894fa6d9542925b32df, type: 3}
-  m_Name: Meat
+  m_Name: Castle
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 853cc5a1d79f87a4c8e5de0586b0a140, type: 3}
-  _type: Meat
+  _icon: {fileID: 21300000, guid: 29a3d0bd681dee74485f9168cef7e5ec, type: 3}
+  _type: Castle

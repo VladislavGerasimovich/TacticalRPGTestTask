@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Grid
 {
+    [RequireComponent(typeof(AllTilesInfo))]
     public class Grid : MonoBehaviour
     {
         [SerializeField] private TileView _tilePrefab;
@@ -11,6 +12,13 @@ namespace Grid
         [SerializeField] private float _cameraOffset;
         [SerializeField] private float _cameraRange;
         [SerializeField] private int _positionDivider;
+
+        private AllTilesInfo _allTilesInfo;
+
+        private void Awake()
+        {
+            _allTilesInfo = GetComponent<AllTilesInfo>();
+        }
 
         private void Start()
         {
@@ -24,6 +32,7 @@ namespace Grid
                 for (int y = 0; y < _height; y++)
                 {
                     TileView spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
+                    _allTilesInfo.AddTile(spawnedTile);
                     spawnedTile.name = $"Tile {x}/{y}/";
 
                     bool isOffset =

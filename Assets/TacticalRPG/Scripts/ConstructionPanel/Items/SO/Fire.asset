@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 238c2fbc7116a894fa6d9542925b32df, type: 3}
-  m_Name: Egg
+  m_Name: Fire
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: a09a6fa70e65178418ecb33393987385, type: 3}
-  _type: Egg
+  _icon: {fileID: 21300000, guid: 80e159dab3e6f1142bc5062eb184ccaf, type: 3}
+  _type: Fire
