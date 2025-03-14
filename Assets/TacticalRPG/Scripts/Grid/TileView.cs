@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Grid
 {
@@ -8,6 +9,7 @@ namespace Grid
         [SerializeField] private Color _baseColor;
         [SerializeField] private Color _offsetColor;
         [SerializeField] private SpriteRenderer _highlight;
+        [SerializeField] private SpriteRenderer _itemIcon;
 
         private SpriteRenderer _spriteRenderer;
 
@@ -21,9 +23,10 @@ namespace Grid
             _spriteRenderer.color = isOffset ? _baseColor : _offsetColor;
         }
 
-        private void OnMouseEnter()
+        public void OnHighlight(Sprite icon)
         {
             _highlight.enabled = true;
+            _itemIcon.sprite = icon;
         }
 
         private void OnMouseExit()
