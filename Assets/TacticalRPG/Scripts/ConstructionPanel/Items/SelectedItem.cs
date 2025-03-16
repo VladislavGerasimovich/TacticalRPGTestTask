@@ -12,9 +12,6 @@ namespace ConstructionPanel.Items
         {
             ItemView = itemView;
             ItemType = itemType;
-
-            Debug.Log(ItemView + " item view");
-            Debug.Log(ItemType.Type + " item type");
         }
 
         public void ResetValues()
