@@ -12,6 +12,7 @@ namespace GridLayout
         [SerializeField] private float _cameraOffset;
         [SerializeField] private float _cameraRange;
         [SerializeField] private int _positionDivider;
+        [SerializeField] private Transform _tilesContainer;
 
         private AllTiles _allTilesInfo;
 
@@ -20,7 +21,7 @@ namespace GridLayout
             _allTilesInfo = GetComponent<AllTiles>();
         }
 
-        private void Start()
+        public void Init()
         {
             GenerateGrid();
             _allTilesInfo.SetStatus();
@@ -32,7 +33,7 @@ namespace GridLayout
             {
                 for (int y = 0; y < _height; y++)
                 {
-                    TileView spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
+                    TileView spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity, _tilesContainer);
                     _allTilesInfo.AddTile(spawnedTile);
                     spawnedTile.name = $"Tile {x}/{y}/";
                     TileInfo tileInfo = spawnedTile.GetComponent<TileInfo>();

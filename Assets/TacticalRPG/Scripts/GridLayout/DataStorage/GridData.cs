@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace GridLayout.DataStorage
 {
@@ -13,7 +12,6 @@ namespace GridLayout.DataStorage
         public void Add(Tile tile)
         {
             _tiles.Add(tile);
-            Debug.Log(_tiles.Count + " add tile");
         }
 
         public void Remove(int positionX, int positionY)
@@ -23,7 +21,6 @@ namespace GridLayout.DataStorage
                 if (tile.PositionX == positionX && tile.PositionY == positionY)
                 {
                     _tiles.Remove(tile);
-                    Debug.Log(_tiles.Count + " remove tile");
 
                     return;
                 }

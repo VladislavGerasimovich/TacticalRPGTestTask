@@ -14,7 +14,6 @@ namespace GridLayout.DataStorage
         public void AddTile(int positionX, int positionY, string type)
         {
             Tile tile = new Tile(positionX, positionY, type);
-            Debug.Log(tile + " new tile created");
             _gridData.Add(tile);
         }
 

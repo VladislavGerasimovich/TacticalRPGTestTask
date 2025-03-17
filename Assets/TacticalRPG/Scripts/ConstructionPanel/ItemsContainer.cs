@@ -17,7 +17,7 @@ namespace ConstructionPanel
             _allItemsView = GetComponent<AllItemsView>();
         }
 
-        private void Start()
+        public void Init()
         {
             Fill();
         }
