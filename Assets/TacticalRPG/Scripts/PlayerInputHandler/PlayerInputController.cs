@@ -1,6 +1,7 @@
 using ConstructionPanel.Buttons;
 using ConstructionPanel.Items;
-using Grid;
+using GridLayout;
+using GridLayout.DataStorage;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace PlayerInputHandler
         [SerializeField] private ActionButton _placeButton;
         [SerializeField] private ActionButton _deleteButton;
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private GridDataHandler _gridData;
 
         private TileView _currentTileView;
         private Coroutine _placeItemRoutine;
@@ -45,23 +47,22 @@ namespace PlayerInputHandler
                 {
                     if (_tempTileInfo != null && _tempTileInfo.IsBusy == true)
                     {
-                        if (_selectedItem.ItemType.Type == _tempTileInfo.Type)
-                        {
-                            _tempTileInfo.ResetValues();
-                            _tempTileView.OffHighlight();
-                            StopCoroutine(_deleteItemRoutine);
-                            _deleteItemRoutine = null;
-                            _tempTileInfo = null;
-                            _tempTileView = null;
-                        }
+                        _gridData.RemoveTile(_tempTileInfo.PositionX, _tempTileInfo.PositionY);
+                        _tempTileInfo.ResetValues();
+                        _tempTileView.OffHighlight();
+                        StopCoroutine(_deleteItemRoutine);
+                        _deleteItemRoutine = null;
+                        _tempTileInfo = null;
+                        _tempTileView = null;
                     }
                 }
 
                 if(_placeItemRoutine != null)
                 {
-                    if(_tempTileInfo != null)
+                    if (_tempTileInfo != null && _tempTileInfo.IsBusy == false)
                     {
                         _tempTileInfo.Set(_selectedItem.ItemType.Type);
+                        _gridData.AddTile(_tempTileInfo.PositionX, _tempTileInfo.PositionY, _tempTileInfo.Type);
                         StopCoroutine(_placeItemRoutine);
                         _placeItemRoutine = null;
                         _currentTileView = null;
@@ -138,10 +139,18 @@ namespace PlayerInputHandler
             {
                 TileView tileView = GetTile(out TileInfo tileInfo);
 
-                if (tileInfo != null && tileInfo.IsBusy == false)
+                if (tileInfo != null)
                 {
-                    SetTileView(tileView);
-                    _tempTileInfo = tileInfo;
+                    if(tileInfo.IsBusy == false)
+                    {
+                        SetTileView(tileView);
+                        _tempTileInfo = tileInfo;
+                    }
+
+                    if (tileInfo.IsBusy == true)
+                    {
+                        _tempTileInfo = null;
+                    }
                 }
 
                 yield return null;

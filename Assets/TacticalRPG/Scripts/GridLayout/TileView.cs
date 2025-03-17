@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Grid
+namespace GridLayout
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class TileView : MonoBehaviour

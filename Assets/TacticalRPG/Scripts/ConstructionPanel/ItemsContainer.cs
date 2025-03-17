@@ -22,6 +22,19 @@ namespace ConstructionPanel
             Fill();
         }
 
+        public Item GetItemByType(string type)
+        {
+            foreach (Item item in _items)
+            {
+                if(item.Type == type)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
         private void Fill()
         {
             foreach (Item item in _items)

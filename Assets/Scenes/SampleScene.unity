@@ -427,6 +427,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 32
+  _gridData: {fileID: 1209314701}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,6 +828,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951659944}
   m_CullTransparentMesh: 1
+--- !u!1 &1209314700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209314702}
+  - component: {fileID: 1209314701}
+  - component: {fileID: 1209314703}
+  m_Layer: 0
+  m_Name: GridData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1209314701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209314700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e77d140d3bd8104296854a7cea831d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1209314702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209314700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 243, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209314703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209314700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1c026e576e83341a2667cd347ef7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridData:
+    _tiles: []
+  _gridDataHandler: {fileID: 1209314701}
+  _allTiles: {fileID: 1501920812}
 --- !u!1 &1501920809
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cf2da7b9597a3418cf7f398d7aa242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemsContainer: {fileID: 519348387}
 --- !u!1 &1550584940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,5 +1370,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1501920811}
+  - {fileID: 1209314702}
   - {fileID: 818403102}
   - {fileID: 1550584943}

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Grid
+namespace GridLayout
 {
-    [RequireComponent(typeof(AllTilesInfo))]
-    public class Grid : MonoBehaviour
+    [RequireComponent(typeof(AllTiles))]
+    public class GridTiles : MonoBehaviour
     {
         [SerializeField] private TileView _tilePrefab;
         [SerializeField] private Transform _camera;
@@ -13,16 +13,17 @@ namespace Grid
         [SerializeField] private float _cameraRange;
         [SerializeField] private int _positionDivider;
 
-        private AllTilesInfo _allTilesInfo;
+        private AllTiles _allTilesInfo;
 
         private void Awake()
         {
-            _allTilesInfo = GetComponent<AllTilesInfo>();
+            _allTilesInfo = GetComponent<AllTiles>();
         }
 
         private void Start()
         {
             GenerateGrid();
+            _allTilesInfo.SetStatus();
         }
 
         private void GenerateGrid()
@@ -34,6 +35,8 @@ namespace Grid
                     TileView spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
                     _allTilesInfo.AddTile(spawnedTile);
                     spawnedTile.name = $"Tile {x}/{y}/";
+                    TileInfo tileInfo = spawnedTile.GetComponent<TileInfo>();
+                    tileInfo.Init(x, y);
 
                     bool isOffset =
                         (x % _positionDivider == 0 && y % _positionDivider != 0)

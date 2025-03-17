@@ -1,11 +1,8 @@
 {
-    "name": "PlayerInputHandler",
+    "name": "GridModule",
     "rootNamespace": "",
     "references": [
-        "GUID:3cc9203abf1166a4fa4b314c4ccdf8c3",
-        "GUID:8d90b3a974cc95f41b0079e0a0a8be21",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:c67817cc816fc6a48b7d69238281c10e"
+        "GUID:3cc9203abf1166a4fa4b314c4ccdf8c3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
